@@ -14,10 +14,10 @@ public class Person {
     @Column(name = "name")
     private String name;
     @NotBlank(message = "CPF is mandatory")
-    @Column(name = "cpf")
+    @Column(name = "cpf", unique = true)
     private String cpf;
     @NotBlank(message = "Email is mandatory")
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
     @NotBlank(message = "Date of birthday is mandatory")
     @Column(name = "date_of_birth")

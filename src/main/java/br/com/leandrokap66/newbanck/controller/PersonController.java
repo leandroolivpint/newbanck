@@ -10,6 +10,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
@@ -30,8 +31,8 @@ public class PersonController {
 
     // add new person
     @PostMapping("/person")
-    public Person createPerson(@Valid @RequestBody Person person) {
-            return personRepository.save(person);
+    public Person createPerson(@Valid @RequestBody Person person) throws ConstraintViolationException{
+                return personRepository.save(person);
     }
     //get person by id
     @GetMapping("/person/{id}")
